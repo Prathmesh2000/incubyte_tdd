@@ -1,4 +1,4 @@
-function add(numbers: string): number | string {
+function add(numbers: string): number {
     if (numbers === "") {
         return 0;
     }
@@ -14,7 +14,7 @@ function add(numbers: string): number | string {
     const negativeNumbers = numberArray.filter(num => num < 0);
 
     if (negativeNumbers.length > 0) {
-        return `negative numbers not allowed ${negativeNumbers.join(', ')}`;
+        throw new Error(`negative numbers not allowed ${negativeNumbers.join(', ')}`);
     }
 
     return numberArray.reduce((sum, num) => sum + num, 0);

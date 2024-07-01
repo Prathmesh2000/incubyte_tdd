@@ -3,6 +3,8 @@ function add(numbers: string): number {
         return 0;
     }
 
-    const numberArray = numbers.split(',').map(num => parseInt(num, 10));
+    const delimiter = /,|\n/;
+    const numberArray = numbers.split(delimiter).map(num => parseInt(num, 10));
+
     return numberArray.reduce((sum, num) => sum + num, 0);
 }
